@@ -15,19 +15,19 @@ además permitir definir el color de fondo y de la fuente
         <form name="form" action="cabeceraPagina.php" method="POST">
             Titulo:<input type="text" name="titulo" value="" size="35" />
             Posicion:<select name="posicion">
-                <option>centrada</option>
-                <option>derecha</option>
-                <option>izquierda</option>                
+                <option>center</option>
+                <option>right</option>
+                <option>left</option>                
             </select>
             ColorFondo:<select name="colorFondo">
-                <option>azul</option>
-                <option>verde</option>
-                <option>rojo</option>
+                <option>blue</option>
+                <option>green</option>
+                <option>red</option>
             </select>
             Color Fuente:<select name="colorFuente">
-                <option>azul</option>
-                <option>verde</option>
-                <option>rojo</option>
+                <option>blue</option>
+                <option>green</option>
+                <option>red</option>
             </select>            
             <input type="submit" value="enviar" name="enviar" />
         </form>

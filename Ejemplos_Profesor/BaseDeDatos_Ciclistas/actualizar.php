@@ -1,6 +1,6 @@
 <?php
 
-    $id = $_GET['id'];
+    $store_id = $_GET['id'];
     $apellidos = $_POST['Apellidos'];
     $nombre = $_POST ['Nombre'];
     $poblacion = $_POST ['Poblacion'];
@@ -14,7 +14,7 @@
     }
     
     $sql = "UPDATE participantes SET Apellidos = '$apellidos', Nombre = '$apellidos',
-        Poblacion = '$poblacion', Club = '$club' WHERE IdParticipante = $id ";
+        Poblacion = '$poblacion', Club = '$club' WHERE IdParticipante = $store_id ";
     
     
     mysqli_query($con, $sql);

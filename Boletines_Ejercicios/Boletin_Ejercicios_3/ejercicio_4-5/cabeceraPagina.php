@@ -17,7 +17,7 @@ $colorFondo = $_POST['colorFondo'];
 $colorFuente = $_POST['colorFuente'];
 
 $cabecera = new cabeceraPagina($titulo, $posicion, $colorFondo, $colorFuente);
-$cabecera->mostrarDatos($titulo);
+$cabecera->mostrarDatos($titulo,$posicion, $colorFondo, $colorFuente);
 
 class cabeceraPagina {
 
@@ -34,25 +34,24 @@ class cabeceraPagina {
         $this->colorFuente = $colFue;
     }
 
-    function mostrarDatos($tit) {      
+    function mostrarDatos($tit, $pos, $colFon, $colFue) {
+        //echo $tit;
 
-        PRINT <<<HERE
- 
-        <body style="background-color:blue">
-            <header><h1>$tit</h1></header>
-             
-        </body>
- 
-                
-HERE;
+
+        echo "
+            <style>
+            body {background-color:$colFon}
+            h1   {color:$colFue;text-align:$pos}
+            </style>
+            
+            <body>
+            <h1>$tit</h1>
+        
+
+            </body>
+                ";
+
+
     }
 
 }
-
-
-
-
-
-
-    
-    

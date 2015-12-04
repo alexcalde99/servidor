@@ -2,35 +2,35 @@
 require_once './participante.entidad.php';
 require_once './participante.modelo.php';
 
-$part = new Participante1();
+$tienda = new Participante1();
 $model = new ParticipanteModel();
 
 if(isset($_GET['action'])) {
     $action = $_GET['action'];
-    $id=$_REQUEST['id'];
+    $store_id=$_REQUEST['id'];
     
     switch ($action){
         case 'editar':
-            $part = $model->obtener($_GET['id']);
+            $tienda = $model->obtener($_GET['id']);
             break;
         case 'actualizar':
-            $part->__SET("Nombre" , $_POST['nombre']);
-            $part->__SET("Apellidos" , $_POST['apellidos']);
-            $part->__SET("Poblacion" , $_POST['poblacion']);
-            $part->__SET("CLUB" , $_POST['club']);
+            $tienda->__SET("Nombre" , $_POST['nombre']);
+            $tienda->__SET("Apellidos" , $_POST['apellidos']);
+            $tienda->__SET("Poblacion" , $_POST['poblacion']);
+            $tienda->__SET("CLUB" , $_POST['club']);
           
-            if($id > 0){
-            $part->__SET("IdParticipante" , $id);
-            $model->actualizar($part);
+            if($store_id > 0){
+            $tienda->__SET("IdParticipante" , $store_id);
+            $model->actualizar($tienda);
             
             }else{
-             $model->insertar($part);
+             $model->insertar($tienda);
             }
             header("Location: index.php");
             break;
             
         case 'eliminar':
-            $model->eliminar($id);
+            $model->eliminar($store_id);
             header("Location: index.php");
             break;
         
@@ -85,11 +85,11 @@ and open the template in the editor.
     <body>
         <div>
             <form name="form" method="POST" action="?action=actualizar">
-                <input type="hidden" name="id" value="<?php echo $part->__GET("IdParticipante"); ?>" />
-                <label>Nombre:</label><input type="text" name="nombre" value="<?php echo $part->__GET("Nombre"); ?>" />
-                <label>Apellidos:</label><input type="text" name="apellidos" value="<?php echo $part->__GET("Apellidos"); ?>" />
-                <label>Poblacion:</label><input type="text" name="poblacion" value="<?php echo $part->__GET("Poblacion"); ?>" />
-                <label>Club:</label><input type="text" name="club" value="<?php echo $part->__GET("CLUB"); ?>" />
+                <input type="hidden" name="id" value="<?php echo $tienda->__GET("IdParticipante"); ?>" />
+                <label>Nombre:</label><input type="text" name="nombre" value="<?php echo $tienda->__GET("Nombre"); ?>" />
+                <label>Apellidos:</label><input type="text" name="apellidos" value="<?php echo $tienda->__GET("Apellidos"); ?>" />
+                <label>Poblacion:</label><input type="text" name="poblacion" value="<?php echo $tienda->__GET("Poblacion"); ?>" />
+                <label>Club:</label><input type="text" name="club" value="<?php echo $tienda->__GET("CLUB"); ?>" />
                 <input type="submit" value="Aceptar" />
             </form>
         </div>
