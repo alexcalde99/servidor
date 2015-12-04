@@ -1,0 +1,32 @@
+<?php
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+// instancias
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$cuadrado1=new Cuadrado();
+$cuadrado1->cargarLado(10);
+$x=$cuadrado1;
+echo 'La superficie del cuadrado es:'.$x->retornarSuperficie().'<br>';
+echo 'El perimetro del cuadrado  es:'.$x->retornarPerimetro().'<br>';
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//Clase cuadrado
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+class Cuadrado {
+    private $lado;
+    public function cargarLado($lado){
+        $this->lado=$lado;
+    }
+    public function retornarPerimetro(){
+        $perimetro=$this->lado*4;
+        return $perimetro;
+    }
+    public function retornarSuperficie(){
+        $superficie=$this->lado*$this->lado;
+        return $superficie;
+    }
+}
+
+
